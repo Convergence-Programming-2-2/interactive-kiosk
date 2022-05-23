@@ -7,9 +7,9 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 
 import javax.swing.*;
 
@@ -17,32 +17,37 @@ import javax.swing.*;
 class Menu extends JFrame{
 	
 	private String name[]= {"치즈버거", "새우버거","불고기버거","콜라","사이다","환타"};
-	private JLabel nameLabels[] = new JLabel[6];
-	private JLabel imgLabels[] = new JLabel[6];
-	private JButton btn_plus[] = new JButton[nameLabels.length];
-	private JButton btn_minus[] = new JButton[nameLabels.length];
-	private JLabel num[] = new JLabel[nameLabels.length];
-	protected Vector<Integer> order_list = new Vector<>();
+	private JLabel nameLabels[] = new JLabel[name.length];
+	private JLabel imgLabels[] = new JLabel[name.length];
+	private JButton btn_plus[] = new JButton[name.length];
+	private JButton btn_minus[] = new JButton[name.length];
+	private JLabel num[] = new JLabel[name.length];
+	protected ArrayList<String> order_list = new ArrayList<>(name.length);
 	
 	private JPanel p_background;
 	private JPanel p_north;
 	private JPanel p_south;
 	
 	
-	
-	public Menu() {	//생성자		
+	public Menu() {	//생성자	
+		set_data();
 		set_layout();
 		menu_order_dp();
 		setSize(600, 800);
 		setVisible(true);
 	}
 	
+	private void set_data() {		
+		
+		order_list = new ArrayList<>(Arrays.asList("0","0","0","0","0","0","(포장/매장)"));
+		System.out.println(order_list);
+	}
 	
 	//order_Dialog
 	private void btn_listener(JButton order_btn,JButton cancel_btn) {
 		
 		order_Dialog d = new order_Dialog();
-		
+		d.setLocation(550, 200);
 		order_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				d.setVisible(true); //결제 팝업창 열고
@@ -75,7 +80,7 @@ class Menu extends JFrame{
                     strNum = String.valueOf(count);
                     num[index].setText(strNum);
                     
-                    //System.out.println(num[index].getText());
+                    order_list.set(index, strNum);// data update
 				}
 				
 				//minus btn
@@ -88,10 +93,14 @@ class Menu extends JFrame{
 						count--;
 						 strNum = String.valueOf(count);
 						num[index].setText(strNum);
+						order_list.set(index, strNum);// data update
+						
 					}
 					 
 					else {
 						num[index].setText("0");
+						order_list.set(index, strNum); // data update
+						
 					}
 					//System.out.println(num[index].getText());	              
 				}
@@ -126,7 +135,11 @@ class Menu extends JFrame{
 		c.add(p_north,BorderLayout.NORTH);
 		
 		//BorderLayout.SOUTH
+<<<<<<< HEAD
 		p_south = new JPanel(new GridLayout());	
+=======
+		p_south = new JPanel(new GridLayout());			
+>>>>>>> a9871bce09e5e8baa2e5610080aa9f537f564dc1
 		p_south.setBackground(new Color(255, 158, 60));		
 		c.add(p_south,BorderLayout.SOUTH);
 		
@@ -279,6 +292,8 @@ class Menu extends JFrame{
 		p_background.add(menu4);
 		p_background.add(menu5);
 		p_background.add(menu6);
+		
+		this.setLocation(500, 20);
 	}
 
 }//JFrame
@@ -288,6 +303,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new Menu();
+		new Initial_screen();
 	}
 }
+
