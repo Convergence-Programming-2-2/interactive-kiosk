@@ -29,8 +29,8 @@ class Menu extends JFrame{
 	private JPanel p_south;
 	
 	
-	public Menu() {	//생성자	
-		set_data();
+	public Menu(String eatinOreatout) {	//생성자	
+		set_data(eatinOreatout);
 		set_layout();
 		menu_order_dp();
 		setSize(600, 800);
@@ -38,9 +38,9 @@ class Menu extends JFrame{
 		setVisible(false);
 	}
 	
-	private void set_data() {		
-		
-		order_list = new ArrayList<>(Arrays.asList("0","0","0","0","0","0","(포장/매장)"));
+	protected void set_data(String eatinOreatout) {				
+		order_list = new ArrayList<>(Arrays.asList("0","0","0","0","0","0"));
+		order_list.add(eatinOreatout);
 		System.out.println(order_list);
 	}
 	

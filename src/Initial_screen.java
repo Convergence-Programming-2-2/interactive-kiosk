@@ -45,7 +45,7 @@ class Initial_screen extends JFrame {
 		c.add(p_south,BorderLayout.SOUTH);
 		  
 		//p_background
-		JLabel screen = new JLabel (new ImageIcon("https://user-images.githubusercontent.com/101086248/169693778-2020e5f3-7a63-41a4-808a-844043bab2ba.png"));
+		JLabel screen = new JLabel (new ImageIcon("./images/img/initial_screen.png"));
 		p_background.add(screen);
 		  
 		//p_north title
@@ -72,19 +72,20 @@ class Initial_screen extends JFrame {
 		p_south.add(eatout_btn,BorderLayout.EAST);	   
 		  
 		  
-		//이벤트: 버튼 누르면 메뉴 고르는 화면으로
-		Menu m = new Menu();
+		//이벤트: 버튼 누르면 메뉴 고르는 화면으로		
 		  
 		eatin_btn.addActionListener(new ActionListener() {
-		      public void actionPerformed(ActionEvent e) {	      
-		    	  m.setVisible(true); //메뉴창 열고
+		      public void actionPerformed(ActionEvent e) {	 
+		    	  Menu m = new Menu("매장");
+		    	  m.setVisible(true); //메뉴창 열고		    	  
 		    	  setVisible(false); // 초기화면 닫고
 		      }
 		  });
 		  
 		eatout_btn.addActionListener(new ActionListener() {
 		      public void actionPerformed(ActionEvent e) {
-		    	  m.setVisible(true); //메뉴창 열고
+		    	  Menu m = new Menu("포장");
+		    	  m.setVisible(true); //메뉴창 열고		    	 
 		    	  setVisible(false); // 초기화면 닫고
 		      }
 		   });      	      
