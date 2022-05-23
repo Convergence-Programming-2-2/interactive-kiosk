@@ -104,6 +104,5 @@ public class order_Dialog extends JDialog{
 				
 				setSize(500, 400);
 				
-		
 	}
 }

@@ -126,7 +126,7 @@ class Menu extends JFrame{
 		c.add(p_north,BorderLayout.NORTH);
 		
 		//BorderLayout.SOUTH
-		p_south = new JPanel(new FlowLayout());			
+		p_south = new JPanel(new GridLayout());	
 		p_south.setBackground(new Color(255, 158, 60));		
 		c.add(p_south,BorderLayout.SOUTH);
 		
