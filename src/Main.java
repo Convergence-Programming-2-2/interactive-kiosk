@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -17,6 +18,7 @@ import javax.swing.*;
 class Menu extends JFrame{
 	
 	private String name[]= {"치즈버거", "새우버거","불고기버거","콜라","사이다","환타"};
+	private int price[]= {5000,5300,4800,2000,2000,1800};
 	private JLabel nameLabels[] = new JLabel[name.length];
 	private JLabel imgLabels[] = new JLabel[name.length];
 	private JButton btn_plus[] = new JButton[name.length];
@@ -184,15 +186,21 @@ class Menu extends JFrame{
 		JPanel menu_num5= new JPanel();
 		JPanel menu_num6= new JPanel();
 		
-		JPanel menu1= new JPanel(new GridLayout(3,0));
-		JPanel menu2= new JPanel(new GridLayout(3,0));
-		JPanel menu3= new JPanel(new GridLayout(3,0));
-		JPanel menu4= new JPanel(new GridLayout(3,0));
-		JPanel menu5 =new JPanel(new GridLayout(3,0));
-		JPanel menu6 =new JPanel(new GridLayout(3,0));
+		JPanel menu1= new JPanel(new GridLayout(4,0,10,10));
+		JPanel menu2= new JPanel(new GridLayout(4,0));
+		JPanel menu3= new JPanel(new GridLayout(4,0));
+		JPanel menu4= new JPanel(new GridLayout(4,0));
+		JPanel menu5 =new JPanel(new GridLayout(4,0));
+		JPanel menu6 =new JPanel(new GridLayout(4,0));
 
-
+		JLabel Jprice[] = new JLabel[name.length];
+		
 		for(int i=0; i<imgLabels.length; i++) { 
+			Jprice[i]= new JLabel();
+			Jprice[i].setText(String.valueOf(price[i]));
+			Jprice[i].setHorizontalAlignment(JLabel.CENTER);
+			Jprice[i].setFont(new Font("Dialog", Font.BOLD, 25)); 
+			
 			ImageIcon icon = new ImageIcon("./images/img/"+i+".png"); 
 			icon = new ImageIcon(icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH)); 
 			imgLabels[i] = new JLabel(icon);
@@ -213,7 +221,7 @@ class Menu extends JFrame{
 		}
 
 		//-------------
-		
+		System.out.print(Jprice[0]);
 		menu_num1.setBackground(Color.white);
 		menu1.setBackground(Color.white);
 		
@@ -242,6 +250,7 @@ class Menu extends JFrame{
 		
 		menu1.add(imgLabels[0]);
 		menu1.add(nameLabels[0]);
+		menu1.add(Jprice[0]);		
 		menu1.add(menu_num1);
 		
 		menu_num2.add(btn_minus[1]);
@@ -250,6 +259,7 @@ class Menu extends JFrame{
 		
 		menu2.add(imgLabels[1]);
 		menu2.add(nameLabels[1]);
+		menu2.add(Jprice[1]);	
 		menu2.add(menu_num2);
 		
 		menu_num3.add(btn_minus[2]);
@@ -258,6 +268,7 @@ class Menu extends JFrame{
 		
 		menu3.add(imgLabels[2]);
 		menu3.add(nameLabels[2]);
+		menu3.add(Jprice[2]);	
 		menu3.add(menu_num3);
 		
 		menu_num4.add(btn_minus[3]);
@@ -266,6 +277,7 @@ class Menu extends JFrame{
 		
 		menu4.add(imgLabels[3]);
 		menu4.add(nameLabels[3]);
+		menu4.add(Jprice[3]);	
 		menu4.add(menu_num4);
 		
 		menu_num5.add(btn_minus[4]);
@@ -274,6 +286,7 @@ class Menu extends JFrame{
 		
 		menu5.add(imgLabels[4]);
 		menu5.add(nameLabels[4]);
+		menu5.add(Jprice[4]);	
 		menu5.add(menu_num5);
 
 		menu_num6.add(btn_minus[5]);
@@ -282,6 +295,7 @@ class Menu extends JFrame{
 		
 		menu6.add(imgLabels[5]);
 		menu6.add(nameLabels[5]);
+		menu6.add(Jprice[5]);	
 		menu6.add(menu_num6);
 
 		p_background.add(menu1);
