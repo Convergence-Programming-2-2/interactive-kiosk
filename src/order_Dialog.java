@@ -103,17 +103,5 @@ public class order_Dialog extends JDialog{
 		});
 		
 		setSize(500, 400);		
-	
-<<<<<<< HEAD
-				cancel_btn.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						setVisible(false); 
-					}
-				});
-				
-				setSize(500, 400);
-				
-=======
->>>>>>> a9871bce09e5e8baa2e5610080aa9f537f564dc1
 	}
 }
