@@ -34,7 +34,8 @@ class Menu extends JFrame{
 		set_layout();
 		menu_order_dp();
 		setSize(600, 800);
-		setVisible(true);
+		//!
+		setVisible(false);
 	}
 	
 	private void set_data() {		

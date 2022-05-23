@@ -29,9 +29,9 @@ class Initial_screen extends JFrame {
 		  
 		//BorderLayout.CENTER
 		JPanel p_background = new JPanel(new GridLayout(0,3));      
-		JScrollPane p_center = new JScrollPane(p_background,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		//!-JScrollPane p_center = new JScrollPane(p_background,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		p_background.setBackground(Color.white);
-		c.add(p_center,BorderLayout.CENTER);
+		c.add(p_background);
 		  
 		  
 		//BorderLayout.NORTH
@@ -40,7 +40,7 @@ class Initial_screen extends JFrame {
 		c.add(p_north,BorderLayout.NORTH);
 		  
 		//BorderLayout.SOUTH
-		JPanel p_south = new JPanel(new FlowLayout());         
+		JPanel p_south = new JPanel(new GridLayout());         
 		p_south.setBackground(new Color(255, 158, 60));      
 		c.add(p_south,BorderLayout.SOUTH);
 		  
@@ -73,24 +73,25 @@ class Initial_screen extends JFrame {
 		  
 		  
 		//이벤트: 버튼 누르면 메뉴 고르는 화면으로
-//		Menu m = new Menu();
-//		  
-//		eatin_btn.addActionListener(new ActionListener() {
-//		      public void actionPerformed(ActionEvent e) {	      
-//		    	  m.setVisible(true); //메뉴창 열고
-//		    	  setVisible(false); // 초기화면 닫고
-//		      }
-//		  });
-//		  
-//		eatout_btn.addActionListener(new ActionListener() {
-//		      public void actionPerformed(ActionEvent e) {
-//		    	  m.setVisible(true); //메뉴창 열고
-//		    	  setVisible(false); // 초기화면 닫고
-//		      }
-//		   });      	      
+		Menu m = new Menu();
+		  
+		eatin_btn.addActionListener(new ActionListener() {
+		      public void actionPerformed(ActionEvent e) {	      
+		    	  m.setVisible(true); //메뉴창 열고
+		    	  setVisible(false); // 초기화면 닫고
+		      }
+		  });
+		  
+		eatout_btn.addActionListener(new ActionListener() {
+		      public void actionPerformed(ActionEvent e) {
+		    	  m.setVisible(true); //메뉴창 열고
+		    	  setVisible(false); // 초기화면 닫고
+		      }
+		   });      	      
 			      
 	    // 프레임 크기 
 		setSize(600, 800);
+		setVisible(true);
 	      
 	}
 	 
