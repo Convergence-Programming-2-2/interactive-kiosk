@@ -28,7 +28,7 @@ class Initial_screen extends JFrame {
 		//JPanner ÆË¾÷Ã¢
 		  
 		//BorderLayout.CENTER
-		JPanel p_background = new JPanel(new GridLayout(0,3));      
+		JPanel p_background = new JPanel(new GridLayout());      
 		//!-JScrollPane p_center = new JScrollPane(p_background,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		p_background.setBackground(Color.white);
 		c.add(p_background);
@@ -45,7 +45,7 @@ class Initial_screen extends JFrame {
 		c.add(p_south,BorderLayout.SOUTH);
 		  
 		//p_background
-		JLabel screen = new JLabel (new ImageIcon("./images/img/initial_screen.png"));
+		JLabel screen = new JLabel (new ImageIcon("./images/img/initial_screen2.png"));
 		p_background.add(screen);
 		  
 		//p_north title
