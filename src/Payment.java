@@ -1,4 +1,7 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 
@@ -70,5 +73,24 @@ class Payment extends JDialog {
 		// 프레임 크기 ----------------------------------------------
 		setSize(600, 800);
 		//setVisible(true);
+		
+		//이벤트(추가)
+		card_btn.addActionListener(new ActionListener() {
+		      public void actionPerformed(ActionEvent e) {	 
+		    	  Card_payment card = new Card_payment();
+		    	  card.setVisible(true); //	카드 결제창 열고	    	  
+		    	  setVisible(false); // 결제 수단 선택창 닫고
+		      }
+		  });
+		  
+		cash_btn.addActionListener(new ActionListener() {
+		      public void actionPerformed(ActionEvent e) {
+		    	  Cash_payment cash = new Cash_payment();
+		    	  cash.setVisible(true); //현금 결제창 열고		    	 
+		    	  setVisible(false); // 결제 수단 선택창 닫고
+		      }
+		   });      
+		
+		
 	}
 }
