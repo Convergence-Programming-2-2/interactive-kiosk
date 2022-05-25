@@ -28,11 +28,9 @@ class Initial_screen extends JFrame {
 		//JPanner ÆË¾÷Ã¢
 		  
 		//BorderLayout.CENTER
-<<<<<<< Updated upstream
+
 		JPanel p_background = new JPanel(new GridLayout());      
-=======
-		JPanel p_background = new JPanel();      
->>>>>>> Stashed changes
+
 		//!-JScrollPane p_center = new JScrollPane(p_background,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		p_background.setBackground(Color.white);
 		c.add(p_background);

@@ -224,22 +224,27 @@ class Menu extends JFrame{
 		System.out.print(Jprice[0]);
 		menu_num1.setBackground(Color.white);
 		menu1.setBackground(Color.white);
+		menu1.setBorder(BorderFactory.createLineBorder(new Color(255, 236, 213))); 
 		
 		menu_num2.setBackground(Color.white);
 		menu2.setBackground(Color.white);
+		menu2.setBorder(BorderFactory.createLineBorder(new Color(255, 236, 213))); 
 		
 		menu_num3.setBackground(Color.white);
 		menu3.setBackground(Color.white);
+		menu3.setBorder(BorderFactory.createLineBorder(new Color(255, 236, 213))); 
 		
 		menu_num4.setBackground(Color.white);
 		menu4.setBackground(Color.white);
+		menu4.setBorder(BorderFactory.createLineBorder(new Color(255, 236, 213))); 
 		
 		menu_num5.setBackground(Color.white);
 		menu5.setBackground(Color.white);
+		menu5.setBorder(BorderFactory.createLineBorder(new Color(255, 236, 213))); 
 		
 		menu_num6.setBackground(Color.white);
 		menu6.setBackground(Color.white);
-		
+		menu6.setBorder(BorderFactory.createLineBorder(new Color(255, 236, 213))); 
 		//-------------
 		
 		
