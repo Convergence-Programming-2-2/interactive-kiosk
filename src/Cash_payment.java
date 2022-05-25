@@ -39,9 +39,9 @@ public class Cash_payment extends JFrame{
 		//JLabel---------------------------------------------
 		
 		JLabel title = new JLabel("동국 킹버거");
-		title.setBounds(10, 15, 300, 50); //위치
+		title.setBounds(10, 7, 300, 50); //위치
 		title.setForeground(Color.white); //글자 색
-		title.setFont(new Font("Dailog", Font.BOLD, 50)); //글자 폰트, 크기
+		title.setFont(new Font("Dailog", Font.BOLD, 35)); //글자 폰트, 크기
 		p_north.add(title);
 			
 		JLabel quest = new JLabel("현금을 삽입해주세요");
@@ -81,9 +81,9 @@ public class Cash_payment extends JFrame{
 		m.setDismissDelay(10000);
 		*/
 
-        ImageIcon cash_icon = new ImageIcon("./images/img/cash_quest.png");
+        ImageIcon cash_icon = new ImageIcon("./images/img/cash_img2.png");
 		JLabel cash_label = new JLabel(cash_icon);
-		cash_label.setBounds(100, 45, 150, 150);
+		cash_label.setBounds(90, 25, 280, 250);
 		p_foreground.add(cash_label);
 		
 		//이벤트

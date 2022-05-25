@@ -43,9 +43,9 @@ public class Card_payment extends JFrame{
 				//JLabel---------------------------------------------
 				
 				JLabel title = new JLabel("동국 킹버거");
-				title.setBounds(10, 15, 300, 50); //위치
+				title.setBounds(10, 7, 300, 50); //위치
 				title.setForeground(Color.white); //글자 색
-				title.setFont(new Font("Dailog", Font.BOLD, 50)); //글자 폰트, 크기
+				title.setFont(new Font("Dailog", Font.BOLD, 35)); //글자 폰트, 크기
 				p_north.add(title);
 					
 				JLabel quest = new JLabel("카드를 삽입해주세요");
@@ -84,9 +84,9 @@ public class Card_payment extends JFrame{
 				m.setDismissDelay(10000);
 				*/
 
-		        ImageIcon card_icon = new ImageIcon("./images/img/card_quest.png");
+		        ImageIcon card_icon = new ImageIcon("./images/img/card_img2.png");
 				JLabel card_label = new JLabel(card_icon);
-				card_label.setBounds(100, 45, 150, 150);
+				card_label.setBounds(90, 45, 270, 200);
 				p_foreground.add(card_label);
 				
 				
