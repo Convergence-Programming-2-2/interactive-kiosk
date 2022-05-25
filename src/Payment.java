@@ -2,7 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 
 
-class Payment extends JDialog {
+class Payment extends JFrame {
 	public Payment() {
 		setTitle("결제 수단 선택");
 		//컨테이너 ------------------------------------------------
