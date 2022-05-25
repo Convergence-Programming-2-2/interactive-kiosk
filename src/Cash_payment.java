@@ -51,7 +51,6 @@ public class Cash_payment extends JFrame{
 		p_foreground.add(quest);
 		
 		
-		
 		JButton wait_btn = new JButton("결제 중 입니다. 잠시만 기다려주세요:)");
 		wait_btn.setBounds(100, 300, 300, 50);
 		wait_btn.setForeground(Color.black); // 배경 색
@@ -82,7 +81,7 @@ public class Cash_payment extends JFrame{
 		m.setDismissDelay(10000);
 		*/
 
-        ImageIcon cash_icon = new ImageIcon("./images/img/cash.png");
+        ImageIcon cash_icon = new ImageIcon("./images/img/cash_quest.png");
 		JLabel cash_label = new JLabel(cash_icon);
 		cash_label.setBounds(100, 45, 150, 150);
 		p_foreground.add(cash_label);
