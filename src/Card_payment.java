@@ -48,7 +48,7 @@ public class Card_payment extends JFrame{
 				title.setFont(new Font("Dailog", Font.BOLD, 50)); //글자 폰트, 크기
 				p_north.add(title);
 					
-				JLabel quest = new JLabel("현금을 삽입해주세요");
+				JLabel quest = new JLabel("카드를 삽입해주세요");
 				quest.setBounds(40, 5, 200, 50); //위치
 				quest.setForeground(Color.black); //글자 색
 				quest.setFont(new Font("Dailog", Font.BOLD, 15)); //글자 폰트, 크기
@@ -84,7 +84,7 @@ public class Card_payment extends JFrame{
 				m.setDismissDelay(10000);
 				*/
 
-		        ImageIcon card_icon = new ImageIcon("./images/img/card2.png");
+		        ImageIcon card_icon = new ImageIcon("./images/img/card_quest.png");
 				JLabel card_label = new JLabel(card_icon);
 				card_label.setBounds(100, 45, 150, 150);
 				p_foreground.add(card_label);
