@@ -13,18 +13,18 @@ class Payment extends JFrame {
 		c.setLayout(null);
 		
 		//JPanner------------------------------------------------
-		JPanel p_background = new JPanel();
-		p_background.setLayout(null);
-		p_background.setBackground(Color.white);
-		p_background.setBounds(0, 0, 600, 800);
-		c.add(p_background);
+		JPanel p_background = new JPanel(); //background 패널
+		p_background.setLayout(null); //직접 위치 설정을 위해 레이아웃 null
+		p_background.setBackground(Color.white); //색깔
+		p_background.setBounds(0, 0, 600, 800); //크기
+		c.add(p_background); //컨테이너에 background 패널 부착
 		
 		//상단 바-------------------------------------------------
-		JPanel p_north = new JPanel();
-		p_north.setLayout(null);
-		p_north.setBackground(new Color(255, 158, 60));
-		p_north.setBounds(0, 0, 600, 80);
-		p_background.add(p_north);
+		JPanel p_north = new JPanel(); //상단 패널
+		p_north.setLayout(null); //직접 위치 설정을 위해 레이아웃 null
+		p_north.setBackground(new Color(255, 158, 60)); //색깔
+		p_north.setBounds(0, 0, 600, 80); //크기
+		p_background.add(p_north); //background에 상단 패널 부착
 			
 
 		//JLabel-------------------------------------------------
@@ -49,22 +49,22 @@ class Payment extends JFrame {
 		
 		
 		//Image---------------------------------------------------
-		ImageIcon card_icon = new ImageIcon("./images/img/card2.png");
-		ImageIcon cash_icon = new ImageIcon("./images/img/cash.png");
+		ImageIcon card_icon = new ImageIcon("./images/img/card2.png"); //card 아이콘 
+		ImageIcon cash_icon = new ImageIcon("./images/img/cash.png");  //cash 아이콘 
 		
 	
-		JButton card_btn = new JButton(card_icon);
-		JButton cash_btn = new JButton(cash_icon);
+		JButton card_btn = new JButton(card_icon); //card 아이콘 버튼 부착
+		JButton cash_btn = new JButton(cash_icon); //cash 아이콘 버튼 부착
 		
-		card_btn.setBorder(BorderFactory.createLineBorder(Color.white));
-		card_btn.setBounds(0, 250, 300, 200);
-		card_btn.setBackground(Color.white);
+		card_btn.setBorder(BorderFactory.createLineBorder(Color.white)); //버튼 border 색
+		card_btn.setBounds(0, 250, 300, 200); //버튼 크기
+		card_btn.setBackground(Color.white); //버튼 색 
 		p_background.add(card_btn);
 		
 		
-		cash_btn.setBorder(BorderFactory.createLineBorder(Color.white));
-		cash_btn.setBounds(300, 250, 300, 200);
-		cash_btn.setBackground(Color.white);
+		cash_btn.setBorder(BorderFactory.createLineBorder(Color.white)); //버튼 border 색
+		cash_btn.setBounds(300, 250, 300, 200); //버튼 크기
+		cash_btn.setBackground(Color.white); // 버튼 색
 		p_background.add(cash_btn);
 		
 		// 프레임 크기 ----------------------------------------------
