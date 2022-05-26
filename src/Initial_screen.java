@@ -42,7 +42,7 @@ class Initial_screen extends JFrame {
 		c.add(p_south,BorderLayout.SOUTH);
 		  
 		//p_background
-		JLabel screen = new JLabel (new ImageIcon("./images/img/initial_screen2.png"));
+		JLabel screen = new JLabel (new ImageIcon("./images/img/initial_pic.png"));
 		p_background.add(screen);
 		  
 		//p_north title
