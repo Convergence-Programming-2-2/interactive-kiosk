@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,31 +22,35 @@ import javax.swing.*;
 
 class Menu extends JFrame{
 	
-	private String name[]= {"치즈버거", "새우버거","불고기버거","콜라","사이다","환타"};
-	private int price[]= {5000,5300,4800,2000,2000,1800};
-	private JLabel nameLabels[] = new JLabel[name.length];
-	private JLabel imgLabels[] = new JLabel[name.length];
-	private JButton btn_plus[] = new JButton[name.length];
-	private JButton btn_minus[] = new JButton[name.length];
-	private JLabel Jprice[] = new JLabel[name.length];
-	private JLabel num[] = new JLabel[name.length];
-	protected ArrayList<String> order_list = new ArrayList<>(name.length);
+	private String name[]= {"치즈버거", "새우버거","불고기버거","콜라","사이다","환타"}; //menu name
+	private JLabel nameLabels[] = new JLabel[name.length]; 					//menu name JLabel
 	
-	private JPanel p_background;
+	private int price[]= {5000,5300,4800,2000,2000,1800}; 	//menu price
+	private JLabel Jprice[] = new JLabel[name.length];		//menu price JLabel
+	private JLabel imgLabels[] = new JLabel[name.length];	 //menu image JLabel
+	
+	private JButton btn_plus[] = new JButton[name.length];	//menuCount button_plus JLabel
+	private JButton btn_minus[] = new JButton[name.length];	//menuCount button_minus JLabel	
+	private JLabel num[] = new JLabel[name.length];			//menuCount num
+	
+	protected ArrayList<String> order_list = new ArrayList<>(name.length); // order list
+	
+	private JPanel p_background; 
 	private JPanel p_north;
 	private JPanel p_south;
 	
 	
-	public Menu(String eatinOreatout) {	//생성자	
+	public Menu(String eatinOreatout) {	//생성자			 
+		/* data set init. Initial_screen 으로 부터 받아온 변수를 데이터셋에 추가(매장 OR 포장)*/
 		set_data(eatinOreatout);
-		set_layout();
-		menu_order_dp();
-		setSize(600, 800);
-		//!
+		set_layout(); // Menu layout set
+		menu_dp();    // Menu display
+		setSize(600, 800); 
 		setVisible(false);
 	}
 	
 	protected void set_data(String eatinOreatout) {				
+		//Menu data : 6개 + 매장/포장 :  1개
 		order_list = new ArrayList<>(Arrays.asList("0","0","0","0","0","0"));
 		order_list.add(eatinOreatout);
 		System.out.println(order_list);
@@ -55,7 +58,7 @@ class Menu extends JFrame{
 	
 	//order_Dialog
 	private void btn_listener(JButton order_btn,JButton cancel_btn) {		
-		order_Dialog d = new order_Dialog();
+		order_Dialog d = new order_Dialog();// new order_Dialog
 		d.setLocation(550, 200);
 		
 		order_btn.addActionListener(new ActionListener() {
@@ -66,7 +69,7 @@ class Menu extends JFrame{
 		
 		cancel_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
+				setVisible(false);// Menu창 닫기
 			}
 		});
 	}
@@ -79,7 +82,7 @@ class Menu extends JFrame{
 				//plus btn
 				if(e.getSource()== btn_plus) {	
 					String strNum = num[index].getText();
-					//string ->int
+					//string -> int
                     int count = Integer.parseInt(strNum);
                     count++;                    
                     
@@ -89,6 +92,7 @@ class Menu extends JFrame{
                     
                     // data update
                     order_list.set(index, strNum);
+                    System.out.println(order_list+"\n");
 				}
 				
 				//minus btn
@@ -103,18 +107,19 @@ class Menu extends JFrame{
 						// int ->string
 						strNum = String.valueOf(count);
 						num[index].setText(strNum);
-						order_list.set(index, strNum);// data update						
+						order_list.set(index, strNum);// data update	
+						System.out.println(order_list);
 					}
 					 
-					else {// count <=0 이라면 -버틀 클릭시 0으로 set
+					else {// count <=0 이라면 -버튼 클릭시 0으로 set
 						num[index].setText("0");
 						order_list.set(index, strNum); // data update
-					}
-					System.out.println(num[index].getText());	              
+						System.out.println(order_list);
+					}           
 				}
 			}
-		};
-
+		};		
+		
 		btn_plus.addActionListener(listener); //btn_plus에 linstenr 달기
 		btn_minus.addActionListener(listener);//btn_minus에 linstenr 달기
 	}
@@ -125,7 +130,7 @@ class Menu extends JFrame{
 		
 		setTitle("메뉴창");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 창 닫으면 프로그램 종료
-		Container c = getContentPane();
+		Container c = getContentPane(); //컨테이너
 		c.setLayout(new BorderLayout());
 		
 		//BorderLayout.CENTER
@@ -185,29 +190,31 @@ class Menu extends JFrame{
 	}
 	
 	// menuPanel set
-	public void set_menuPanel(JPanel menu_num,JPanel menu, int index) {
+	public void set_menuPanel(JPanel menu_count_bar,JPanel menu, int index) {	
+		//menu_count_bar
+		menu_count_bar.add(btn_minus[index]);
+		menu_count_bar.add(num[index]);			
+		menu_count_bar.add(btn_plus[index]);
 		
-		menu_num.add(btn_minus[index]);
-		menu_num.add(num[index]);			
-		menu_num.add(btn_plus[index]);
-		
+		// labels/panel add to menuPanel  
 		menu.add(imgLabels[index]);
 		menu.add(nameLabels[index]);
 		menu.add(Jprice[index]);		
-		menu.add(menu_num);
+		menu.add(menu_count_bar);
 	}
 	
 	// menu display
-	public void menu_order_dp() {
-
-		JPanel menu_num1= new JPanel();
-		JPanel menu_num2= new JPanel();
-		JPanel menu_num3= new JPanel();
-		JPanel menu_num4= new JPanel();
-		JPanel menu_num5= new JPanel();
-		JPanel menu_num6= new JPanel();
+	public void menu_dp() {
+		//menu count bar Panel ( +,-버튼 and 개수)
+		JPanel menu_count_bar1= new JPanel();
+		JPanel menu_count_bar2= new JPanel();
+		JPanel menu_count_bar3= new JPanel();
+		JPanel menu_count_bar4= new JPanel();
+		JPanel menu_count_bar5= new JPanel();
+		JPanel menu_count_bar6= new JPanel();
 		
-		JPanel menu1= new JPanel(new GridLayout(4,0));
+		// 4행 ( img, name, price, menucount bar )
+		JPanel menu1= new JPanel(new GridLayout(4,0)); 
 		JPanel menu2= new JPanel(new GridLayout(4,0));
 		JPanel menu3= new JPanel(new GridLayout(4,0));
 		JPanel menu4= new JPanel(new GridLayout(4,0));
@@ -215,44 +222,48 @@ class Menu extends JFrame{
 		JPanel menu6 =new JPanel(new GridLayout(4,0));
 
 		
-		for(int i=0; i<imgLabels.length; i++) { 
+		for(int i=0; i<name.length; i++) { //메뉴의 개수만큼 반복
 			
+			//가격
 			Jprice[i]= new JLabel();
-			Jprice[i].setText(String.valueOf(price[i]));
-			Jprice[i].setHorizontalAlignment(JLabel.CENTER);
-			Jprice[i].setFont(new Font("Dialog", Font.BOLD, 25)); 
+			Jprice[i].setText(String.valueOf(price[i])); 	 // int형 배열을 String으로 변환후 JPrice에 setText
+			Jprice[i].setHorizontalAlignment(JLabel.CENTER); // 가운데 정렬
+			Jprice[i].setFont(new Font("Dialog", Font.BOLD, 25)); //Font설정
 			
-			ImageIcon icon = new ImageIcon("./images/img/"+i+".png"); 
-			icon = new ImageIcon(icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH)); 
-			imgLabels[i] = new JLabel(icon);
+			//이미지
+			ImageIcon icon = new ImageIcon("./images/img/"+i+".png");  // ImageIcon 객체생성
+			icon = new ImageIcon(icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH)); // Image사이즈 조정
+			imgLabels[i] = new JLabel(icon);// imageicon을 JLabel imageLabels 객체로 생성
 			
-			nameLabels[i]= new JLabel(name[i]);
-			nameLabels[i].setFont(new Font("Dialog", Font.BOLD, 25)); // 글자 폰트 및 크기
+			//이름
+			nameLabels[i]= new JLabel(name[i]);// name을 JLabel nameLabels 객체로 생성
 			nameLabels[i].setHorizontalAlignment(JLabel.CENTER);
+			nameLabels[i].setFont(new Font("Dialog", Font.BOLD, 25)); 
 			
-			btn_plus[i] = new JButton("+");
+			//버튼
+			btn_plus[i] = new JButton("+"); 
 			btn_minus[i] = new JButton("-");	
 			
+			//개수 
 			num[i] = new JLabel ("0",JLabel.CENTER);
 			num[i].setText("0");			
 			
-			menu_listener(btn_plus[i],btn_minus[i],i);
-		
+			menu_listener(btn_plus[i],btn_minus[i],i);// JButton listener	
 		}
 
-		set_background(menu_num1,menu1);
-		set_background(menu_num2,menu2);
-		set_background(menu_num3,menu3);
-		set_background(menu_num4,menu4);
-		set_background(menu_num5,menu5);
-		set_background(menu_num6,menu6);
+		set_background(menu_count_bar1,menu1);// menu backgroud setColor, setBorder
+		set_background(menu_count_bar2,menu2);
+		set_background(menu_count_bar3,menu3);
+		set_background(menu_count_bar4,menu4);
+		set_background(menu_count_bar5,menu5);
+		set_background(menu_count_bar6,menu6);
 		
-		set_menuPanel(menu_num1, menu1 ,0);
-		set_menuPanel(menu_num2, menu2 ,1);
-		set_menuPanel(menu_num3, menu3 ,2);
-		set_menuPanel(menu_num4, menu4 ,3);
-		set_menuPanel(menu_num5, menu5 ,4);
-		set_menuPanel(menu_num6, menu6 ,5);
+		set_menuPanel(menu_count_bar1, menu1 ,0);// menuPanel set
+		set_menuPanel(menu_count_bar2, menu2 ,1);
+		set_menuPanel(menu_count_bar3, menu3 ,2);
+		set_menuPanel(menu_count_bar4, menu4 ,3);
+		set_menuPanel(menu_count_bar5, menu5 ,4);
+		set_menuPanel(menu_count_bar6, menu6 ,5);
 
 		p_background.add(menu1);
 		p_background.add(menu2);
@@ -261,6 +272,6 @@ class Menu extends JFrame{
 		p_background.add(menu5);
 		p_background.add(menu6);
 		
-		this.setLocation(500, 20); //위치
+		this.setLocation(500, 20);
 	}
 }
