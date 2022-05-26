@@ -40,9 +40,15 @@ class Initial_screen extends JFrame {
 		JPanel p_south = new JPanel(new GridLayout());         
 		p_south.setBackground(new Color(255, 158, 60)); //주황색
 		c.add(p_south,BorderLayout.SOUTH);
+<<<<<<< HEAD
 				
 		//image
 		JLabel screen = new JLabel (new ImageIcon("./images/img/initial_pic.png")); //키오스크 메인화면
+=======
+		  
+		//p_background
+		JLabel screen = new JLabel (new ImageIcon("./images/img/initial_pic.png"));
+>>>>>>> 42af4db02c5e3e15290defd55d351f31976876a6
 		p_background.add(screen);
 		  
 		JLabel logo = new JLabel(new ImageIcon("./images/img/logo_transparent.png")); //동국킹버거 로고    
