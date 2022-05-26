@@ -27,67 +27,63 @@ class Initial_screen extends JFrame {
 		c.setLayout(new BorderLayout());
 		  
 		//BorderLayout.CENTER
-		JPanel p_background = new JPanel(new GridLayout());      
+		JPanel p_background = new JPanel(new GridLayout()); //메인화면 백그라운드색_흰색   
 		p_background.setBackground(Color.white);
 		c.add(p_background);
 		  
 		//BorderLayout.NORTH
 		JPanel p_north = new JPanel(new FlowLayout());
-		p_north.setBackground(new Color(255, 158, 60));
+		p_north.setBackground(new Color(255, 158, 60));//주황색
 		c.add(p_north,BorderLayout.NORTH);
 		  
 		//BorderLayout.SOUTH
 		JPanel p_south = new JPanel(new GridLayout());         
-		p_south.setBackground(new Color(255, 158, 60));      
+		p_south.setBackground(new Color(255, 158, 60)); //주황색
 		c.add(p_south,BorderLayout.SOUTH);
-		  
-		//p_background
-		JLabel screen = new JLabel (new ImageIcon("./images/img/initial_screen2.png"));
+				
+		//image
+		JLabel screen = new JLabel (new ImageIcon("./images/img/initial_pic.png")); //키오스크 메인화면
 		p_background.add(screen);
 		  
-		//p_north title
-		JLabel logo = new JLabel(new ImageIcon("./images/img/logo_transparent.png"));     
+		JLabel logo = new JLabel(new ImageIcon("./images/img/logo_transparent.png")); //동국킹버거 로고    
 		p_north.add(logo);
 		
-		  
-		  
 		//매장식사, 포장 버튼
 		JToggleButton eatin_btn = new JToggleButton("매장 식사");
-		eatin_btn.setBounds(0, 665, 300, 100); //위치
-		eatin_btn.setBackground(new Color(255, 158, 60)); //글자 색
-		eatin_btn.setForeground(Color.white); // 배경 색
-		eatin_btn.setBorder(BorderFactory.createLineBorder(Color.white)); //버튼 테두리 색
-		eatin_btn.setFont(new Font("Dialog", Font.BOLD, 40)); // 글자 폰트 및 크기
+		eatin_btn.setBounds(0, 665, 300, 100); 
+		eatin_btn.setBackground(new Color(255, 158, 60)); 
+		eatin_btn.setForeground(Color.white); 
+		eatin_btn.setBorder(BorderFactory.createLineBorder(Color.white)); 
+		eatin_btn.setFont(new Font("Dialog", Font.BOLD, 40)); 
 		p_south.add(eatin_btn, BorderLayout.WEST);
 		  
 		JButton eatout_btn = new JButton("포장 하기");
-		eatout_btn.setBounds(300, 665, 300, 100);//위치
-		eatout_btn.setBackground(new Color(255, 158, 60));//글자 색
-		eatout_btn.setForeground(Color.white); // 배경 색
-		eatout_btn.setBorder(BorderFactory.createLineBorder(Color.white));//버튼 테두리 색
-		eatout_btn.setFont(new Font("Dialog", Font.BOLD, 40)); // 글자 폰트 및 크기
+		eatout_btn.setBounds(300, 665, 300, 100);
+		eatout_btn.setBackground(new Color(255, 158, 60));
+		eatout_btn.setForeground(Color.white); 
+		eatout_btn.setBorder(BorderFactory.createLineBorder(Color.white));
+		eatout_btn.setFont(new Font("Dialog", Font.BOLD, 40)); 
 		p_south.add(eatout_btn,BorderLayout.EAST);	   
 		  
 		  
-		//이벤트: 버튼 누르면 메뉴 고르는 화면으로		
-		  
-		eatin_btn.addActionListener(new ActionListener() {
+		//event------------------------------------------		  
+		eatin_btn.addActionListener(new ActionListener() {//매장 식사 버튼 누르면 
 		      public void actionPerformed(ActionEvent e) {	 
 		    	  Menu m = new Menu("매장");
-		    	  m.setVisible(true); //메뉴창 열고		    	  
-		    	  setVisible(false); // 초기화면 닫고
+		    	  m.setVisible(true); //메뉴창(Menu) 열고		    	  
+		    	  setVisible(false); // 초기화면(Initial_screen) 닫고
 		      }
 		  });
 		  
-		eatout_btn.addActionListener(new ActionListener() {
+		eatout_btn.addActionListener(new ActionListener() {//포장하기 버튼 누르면
 		      public void actionPerformed(ActionEvent e) {
 		    	  Menu m = new Menu("포장");
-		    	  m.setVisible(true); //메뉴창 열고		    	 
-		    	  setVisible(false); // 초기화면 닫고
+		    	  m.setVisible(true); //메뉴창(Menu) 열고		    	 
+		    	  setVisible(false); // 초기화면(Initial_screen) 닫고
 		      }
 		   });      	      
 			      
-	    // 프레임 크기 
+	    // 프레임 크기 ----------------------------------
 		setSize(600, 800);
 		this.setLocation(500, 20);
 		setVisible(true);
