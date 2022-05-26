@@ -37,13 +37,13 @@ class Payment extends JFrame {
 		
 		
 		JLabel card_label = new JLabel("카드 결제");
-		card_label.setBounds(110, 450, 300, 50); //위치
+		card_label.setBounds(110, 410, 300, 50); //위치
 		card_label.setFont(new Font("Dailog", Font.BOLD, 20)); //글자 폰트, 크기
 		p_background.add(card_label);
 		
 		
 		JLabel cash_label = new JLabel("현금 결제");
-		cash_label.setBounds(400, 450, 300, 50); //위치
+		cash_label.setBounds(400, 410, 300, 50); //위치
 		cash_label.setFont(new Font("Dailog", Font.BOLD, 20)); //글자 폰트, 크기
 		p_background.add(cash_label);
 		
@@ -51,19 +51,23 @@ class Payment extends JFrame {
 		//Image---------------------------------------------------
 		ImageIcon card_icon = new ImageIcon("./images/img/card2.png"); //card 아이콘 
 		ImageIcon cash_icon = new ImageIcon("./images/img/cash.png");  //cash 아이콘 
-		
+		ImageIcon burger_icon = new ImageIcon("./images/img/burger_pic.png");
 	
 		JButton card_btn = new JButton(card_icon); //card 아이콘 버튼 부착
 		JButton cash_btn = new JButton(cash_icon); //cash 아이콘 버튼 부착
 		
+		JLabel burger_label = new JLabel(burger_icon);
+		burger_label.setBounds(52, 340, 500, 540);
+		p_background.add(burger_label);
+		
 		card_btn.setBorder(BorderFactory.createLineBorder(Color.white)); //버튼 border 색
-		card_btn.setBounds(0, 250, 300, 200); //버튼 크기
+		card_btn.setBounds(0, 210, 300, 200); //버튼 크기
 		card_btn.setBackground(Color.white); //버튼 색 
 		p_background.add(card_btn);
 		
 		
 		cash_btn.setBorder(BorderFactory.createLineBorder(Color.white)); //버튼 border 색
-		cash_btn.setBounds(300, 250, 300, 200); //버튼 크기
+		cash_btn.setBounds(300, 210, 300, 200); //버튼 크기
 		cash_btn.setBackground(Color.white); // 버튼 색
 		p_background.add(cash_btn);
 		
