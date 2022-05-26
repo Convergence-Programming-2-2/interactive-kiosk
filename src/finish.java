@@ -45,7 +45,6 @@ public class finish extends JFrame{
 		p_north.add(title);
 		
 		
-			
 		JLabel quest = new JLabel("결제 완료되었습니다. 메뉴가 준비되면 불러드리겠습니다:)");
 		quest.setBounds(0, 5, 430, 50); //위치
 		quest.setForeground(Color.black); //글자 색
