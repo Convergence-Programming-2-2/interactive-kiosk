@@ -25,16 +25,11 @@ class Initial_screen extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 창 닫으면 프로그램 종료
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
-		//JPanner 팝업창
 		  
 		//BorderLayout.CENTER
-
 		JPanel p_background = new JPanel(new GridLayout());      
-
-		//!-JScrollPane p_center = new JScrollPane(p_background,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		p_background.setBackground(Color.white);
 		c.add(p_background);
-		  
 		  
 		//BorderLayout.NORTH
 		JPanel p_north = new JPanel(new FlowLayout());
@@ -94,6 +89,7 @@ class Initial_screen extends JFrame {
 			      
 	    // 프레임 크기 
 		setSize(600, 800);
+		this.setLocation(500, 20);
 		setVisible(true);
 	      
 	}

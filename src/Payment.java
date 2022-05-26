@@ -12,8 +12,6 @@ class Payment extends JFrame {
 		Container c = getContentPane();
 		c.setLayout(null);
 		
-
-
 		//JPanner------------------------------------------------
 		JPanel p_background = new JPanel();
 		p_background.setLayout(null);
@@ -27,8 +25,7 @@ class Payment extends JFrame {
 		p_north.setBackground(new Color(255, 158, 60));
 		p_north.setBounds(0, 0, 600, 80);
 		p_background.add(p_north);
-		
-		
+			
 
 		//JLabel-------------------------------------------------
 		
@@ -78,7 +75,8 @@ class Payment extends JFrame {
 		card_btn.addActionListener(new ActionListener() {
 		      public void actionPerformed(ActionEvent e) {	 
 		    	  Card_payment card = new Card_payment();
-		    	  card.setVisible(true); //	카드 결제창 열고	    	  
+		    	  card.setVisible(true); //	카드 결제창 열고	   
+		    	  card.setLocation(550, 180);
 		    	  setVisible(false); // 결제 수단 선택창 닫고
 		      }
 		  });
@@ -86,11 +84,12 @@ class Payment extends JFrame {
 		cash_btn.addActionListener(new ActionListener() {
 		      public void actionPerformed(ActionEvent e) {
 		    	  Cash_payment cash = new Cash_payment();
-		    	  cash.setVisible(true); //현금 결제창 열고		    	 
+		    	  cash.setVisible(true); //현금 결제창 열고		
+		    	  cash.setLocation(550, 180);
 		    	  setVisible(false); // 결제 수단 선택창 닫고
 		      }
 		   });      
 		
-		
+		this.setLocation(500,20);
 	}
 }

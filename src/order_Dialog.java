@@ -27,8 +27,7 @@ public class order_Dialog extends JDialog{
 		p_north.setLayout(null);
 		p_north.setBackground(new Color(255, 158, 60));
 		p_north.setBounds(0, 0, 500, 60);
-		p_background.add(p_north);
-		
+		p_background.add(p_north);		
 		
 
 		JPanel p_foreground = new JPanel();
@@ -56,8 +55,7 @@ public class order_Dialog extends JDialog{
 		c.add(cancel_btn);
 		
 		
-		//JLabel---------------------------------------------
-		
+		//JLabel---------------------------------------------		
 		JLabel main_title = new JLabel("주문 확인");
 		main_title.setBounds(10, 5, 200, 50); //위치
 		main_title.setForeground(Color.white); //글자 색
@@ -89,7 +87,6 @@ public class order_Dialog extends JDialog{
 		Payment p = new Payment();
 		ok_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				p.setVisible(true);// 결제 수단 선택 창 열
 				setVisible(false); // 팝업창 닫고
 			}
@@ -103,5 +100,6 @@ public class order_Dialog extends JDialog{
 		});
 		
 		setSize(500, 400);		
+		
 	}
 }

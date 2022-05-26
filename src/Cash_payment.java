@@ -95,5 +95,7 @@ public class Cash_payment extends JFrame{
 		      }
 		  });
 		
+		this.setLocation(500, 20);
+		
 	}
 }

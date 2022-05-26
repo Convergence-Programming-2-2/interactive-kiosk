@@ -52,6 +52,6 @@ public class finish extends JFrame{
 		quest.setFont(new Font("Dailog", Font.BOLD, 15)); //글자 폰트, 크기
 		p_foreground.add(quest);
 		
-		
+		this.setLocation(550, 220);
 	}
 }
