@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Container;
 
 public class finish extends JFrame{
 	public finish() {
@@ -39,14 +40,15 @@ public class finish extends JFrame{
 		ImageIcon logo_origin = new ImageIcon("./images/img/logo_transparent.png");
 		JLabel title_logo = new JLabel(logo_origin);		
 		p_north.add(title_logo);
-		title.setBounds(10, 15, 300, 50); //위치
+		title.setBounds(10, 5, 300, 50); //위치
 		title.setForeground(Color.white); //글자 색
-		title.setFont(new Font("Dailog", Font.BOLD, 50)); //글자 폰트, 크기
+		title.setFont(new Font("Dailog", Font.BOLD, 35)); //글자 폰트, 크기
 		p_north.add(title);
 		
 		
-		JLabel quest = new JLabel("결제 완료되었습니다. 메뉴가 준비되면 불러드리겠습니다:)");
-		quest.setBounds(0, 5, 430, 50); //위치
+		JLabel quest = new JLabel();
+		quest.setText("<html>" + "결제 완료되었습니다." +"<br>" +"메뉴가 준비되면 불러드리겠습니다:)"+ "</html>");
+		quest.setBounds(100, 70, 430, 50); //위치
 		quest.setForeground(Color.black); //글자 색
 		quest.setFont(new Font("Dailog", Font.BOLD, 15)); //글자 폰트, 크기
 		p_foreground.add(quest);
