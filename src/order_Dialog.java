@@ -4,11 +4,14 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import javax.swing.*;
 
 
 public class order_Dialog extends JDialog{
-	public order_Dialog() {
+	public order_Dialog(ArrayList<String> arr) {
 		setTitle("결제 팝업창");
 	
 		//컨테이너 ----------------------------------------------------
@@ -67,13 +70,32 @@ public class order_Dialog extends JDialog{
 		order_title.setForeground(Color.DARK_GRAY); //글자 색
 		order_title.setFont(new Font("Dailog", Font.BOLD, 15)); //글자 폰트, 크기
 		p_foreground.add(order_title); //패널에 라벨 부착
-		
-		
-		JLabel order_list = new JLabel("총 결제 금액 : ");
-		order_list.setBounds(200, 200, 200, 50); //위치
-		order_list.setForeground(Color.DARK_GRAY); //글자 색
-		order_list.setFont(new Font("Dailog", Font.BOLD, 15)); //글자 폰트, 크기
-		p_foreground.add(order_list); //패널에 라벨 부착
+
+		int y_index = -121;
+		String order_list = "<html>"; // 줄바꿈을 넣기 위해 html 형식 사용
+		for (int i = 0; i < 6; i++)
+		{
+			if (Integer.parseInt(arr.get(i)) != 0) // 주문한 상품이 0개가 아니라면
+			{
+				order_list += Constants.name[i] + ": " + arr.get(i) +"개<br>"; // 상품명과 주문 개수를 order_list에 추가하고
+				y_index += 11; // 세로축 조정
+			}			
+		}
+		order_list += arr.get(6) + "</html>"; // 매장/포장 여부 추가 후 html 닫기
+		JLabel order_list_title = new JLabel(order_list); // order_list 출력
+		order_list_title.setBounds(200, y_index, 200, 300); // 주문한 상품 종류 수에 따라 세로축 조정
+		order_list_title.setForeground(Color.DARK_GRAY); //글자 색
+		order_list_title.setFont(new Font("Dailog", Font.BOLD, 15)); //글자 폰트, 크기
+		p_foreground.add(order_list_title); //패널에 라벨 부착
+
+		int sum = 0;
+		for (int i = 0; i < 6; i++) // 총 결제 금액 계싼
+			sum += Constants.price[i] * Integer.parseInt(arr.get(i));
+		JLabel total_price = new JLabel("총 결제 금액 : " + sum + "원");
+		total_price.setBounds(200, 200, 200, 50); //위치
+		total_price.setForeground(Color.DARK_GRAY); //글자 색
+		total_price.setFont(new Font("Dailog", Font.BOLD, 15)); //글자 폰트, 크기
+		p_foreground.add(total_price); //패널에 라벨 부착
 		
 		
 		//img-------------------------------------------------------

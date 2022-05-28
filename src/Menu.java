@@ -60,15 +60,14 @@ class Menu extends JFrame{
 	
 	//order_Dialog 
 	private void btn_listener(JButton order_btn,JButton cancel_btn) {		
-		order_Dialog d = new order_Dialog();// new order_Dialog
-		d.setLocation(550, 200);
-   
 		order_btn.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				if(Frequency == 6) // 주문리스트의 모든 요소가  0이라면(주문내역이 없다면)	
-					d.setVisible(false);//결제 팝업창 열기								
-				else 
-					d.setVisible(true); //결제 팝업창 열기	
+				if(Frequency != 6) // 주문리스트의 모든 요소가 0이라면(주문내역이 없다면)
+				{
+					order_Dialog d = new order_Dialog(order_list);// new order_Dialog
+					d.setLocation(550, 200);
+					d.setVisible(true); //결제 팝업창 열기				   
+				}
 			}
 		});		
 
@@ -128,8 +127,8 @@ class Menu extends JFrame{
 			}
 		};		
 		
-		btn_plus.addActionListener(listener); //btn_plus에 linstenr 달기
-		btn_minus.addActionListener(listener);//btn_minus에 linstenr 달기
+		btn_plus.addActionListener(listener); //btn_plus에 listener 달기
+		btn_minus.addActionListener(listener);//btn_minus에 listener 달기
 	}
 	
 	
