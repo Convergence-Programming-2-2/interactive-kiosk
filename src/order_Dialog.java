@@ -36,7 +36,7 @@ public class order_Dialog extends JDialog{
 		JPanel p_foreground = new JPanel(); //foreground 패널
 		p_foreground.setLayout(null); //직접 위치 설정을 위해 레이아웃 null
 		p_foreground.setBackground((new Color(255, 248, 243))); //색깔
-		p_foreground.setBounds(25, 60, 430, 300); //크기
+		p_foreground.setBounds(25, 60, 430, 255); //크기
 		p_background.add(p_foreground); //background에 foreground 부착 
 		
 		
@@ -47,7 +47,7 @@ public class order_Dialog extends JDialog{
 		ok_btn.setForeground(Color.white); // 배경 색
 		ok_btn.setBorder(BorderFactory.createLineBorder(Color.white)); //버튼 테두리 색
 		ok_btn.setFont(new Font("Dialog", Font.BOLD, 20)); // 글자 폰트 및 크기
-		c.add(ok_btn); //컨테이너에 버튼 부착
+		p_background.add(ok_btn); //컨테이너에 버튼 부착
 		
 		JButton cancel_btn = new JButton("Cancel");//버튼 생성
 		cancel_btn.setBounds(250, 315, 250, 50); //버튼 위치
@@ -55,7 +55,7 @@ public class order_Dialog extends JDialog{
 		cancel_btn.setForeground(Color.white); // 배경 색
 		cancel_btn.setBorder(BorderFactory.createLineBorder(Color.white)); //버튼 테두리 색
 		cancel_btn.setFont(new Font("Dialog", Font.BOLD, 20)); // 글자 폰트 및 크기
-		c.add(cancel_btn); //컨테이너에 버튼 부착
+		p_background.add(cancel_btn); //컨테이너에 버튼 부착
 		
 		
 		//JLabel----------------------------------------------------		
@@ -71,6 +71,8 @@ public class order_Dialog extends JDialog{
 		order_title.setFont(new Font("Dailog", Font.BOLD, 15)); //글자 폰트, 크기
 		p_foreground.add(order_title); //패널에 라벨 부착
 
+		
+		//-------------------------------------------------------------------
 		int y_index = -121;
 		String order_list = "<html>"; // 줄바꿈을 넣기 위해 html 형식 사용
 		for (int i = 0; i < 6; i++)
@@ -98,11 +100,13 @@ public class order_Dialog extends JDialog{
 		p_foreground.add(total_price); //패널에 라벨 부착
 		
 		
+		
 		//img-------------------------------------------------------
 		ImageIcon burger_icon = new ImageIcon("./images/img/0.png"); //이미지 아이콘 생성
 		JLabel burger_label = new JLabel(burger_icon); // 라벨에 이미지 아이콘 부탁
 		burger_label.setBounds(20, 135, 100, 117); //라벨 크기
 		p_foreground.add(burger_label); //패널에 라벨 부착
+		
 		
 		//이벤트------------------------------------------------------
 		

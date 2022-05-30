@@ -18,8 +18,8 @@ class Payment extends JFrame {
 		p_background.setBackground(Color.white); //색깔
 		p_background.setBounds(0, 0, 600, 800); //크기
 		c.add(p_background); //컨테이너에 background 패널 부착
+
 		
-		//상단 바-------------------------------------------------
 		JPanel p_north = new JPanel(); //상단 패널
 		p_north.setLayout(null); //직접 위치 설정을 위해 레이아웃 null
 		p_north.setBackground(new Color(255, 158, 60)); //색깔
