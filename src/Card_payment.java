@@ -2,9 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.TimerTask;
+import java.util.Timer;
 
 public class Card_payment extends JFrame{
-		
+
 	public Card_payment() {//생성자
 		setTitle("카드 결제창");
 		setSize(500, 400);
@@ -58,6 +60,25 @@ public class Card_payment extends JFrame{
 		wait_btn.setFont(new Font("Dialog", Font.BOLD, 15));
 		c.add(wait_btn);
 		
+		// 몇 초 지나면 자동으로 결제 완료
+		/*[설 명]
+		 * 1. Timer, TimerTast를 사용해서 카운트다운 기능을 구현할 수 있습니다
+		 * 2. timer.schedule - 타이머 스케줄러 작업 실행 및 반복 시간을 정의합니다
+		 * 3. timer.cancle - 타이머 실행을 종료합니다
+		 */
+		Timer timer = new Timer();
+		TimerTask task = new TimerTask(){
+		    @Override
+		    public void run() { // 결제 완료 창으로 이동
+		    	finish f = new finish();
+		    	f.setVisible(true); //결제 완료창(finish) 열고	    	  
+		    	setVisible(false); //카드 결제창(Card_payment) 닫고
+				System.out.println("3초가 지나 결제 완료창으로 이동합니다.");
+				timer.cancel(); //타이머 종료
+		    }	
+		};
+		timer.schedule(task, 3000); // 5초 뒤 실헹
+		
 		/*원본->안되면 이거로!
 		JLabel wait = new JLabel("결제 중 입니다. 잠시만 기다려주세요:)");
 		wait.setBounds(150, 200, 400, 50); //위치
@@ -88,7 +109,8 @@ public class Card_payment extends JFrame{
 		
 		//event-------------------------------------------------------
 		wait_btn.addActionListener(new ActionListener() {
-		      public void actionPerformed(ActionEvent e) {	 
+		      public void actionPerformed(ActionEvent e) {
+		    	  timer.cancel(); // 클릭으로 넘어가면 타이머 실행 안 됨
 		    	  finish f = new finish();
 		    	  f.setVisible(true); //결제 완료창(finish) 열고	    	  
 		    	  setVisible(false); //카드 결제창(Card_payment) 닫고

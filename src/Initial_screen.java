@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -70,7 +72,7 @@ class Initial_screen extends JFrame {
 		//event------------------------------------------		  
 		eatin_btn.addActionListener(new ActionListener() {//매장 식사 버튼 누르면 
 		      public void actionPerformed(ActionEvent e) {	 
-		    	  Menu m = new Menu("매장");
+		    	  Menu m = new Menu("매장", new ArrayList<>(Arrays.asList("0","0","0","0","0","0")));
 		    	  m.setVisible(true); //메뉴창(Menu) 열고		    	  
 		    	  setVisible(false); // 초기화면(Initial_screen) 닫고
 		      }
@@ -78,7 +80,7 @@ class Initial_screen extends JFrame {
 		  
 		eatout_btn.addActionListener(new ActionListener() {//포장하기 버튼 누르면
 		      public void actionPerformed(ActionEvent e) {
-		    	  Menu m = new Menu("포장");
+		    	  Menu m = new Menu("포장", new ArrayList<>(Arrays.asList("0","0","0","0","0","0")));
 		    	  m.setVisible(true); //메뉴창(Menu) 열고		    	 
 		    	  setVisible(false); // 초기화면(Initial_screen) 닫고
 		      }

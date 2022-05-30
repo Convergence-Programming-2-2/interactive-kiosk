@@ -42,28 +42,31 @@ class Menu extends JFrame{
 	private JPanel p_south;
 	
 	
-	public Menu(String eatinOreatout) {	//생성자			 
+	public Menu(String eatinOreatout, ArrayList<String> arr) {	//생성자			 
 		/* data set init. Initial_screen 으로 부터 받아온 변수를 데이터셋에 추가(매장 OR 포장)*/
-		set_data(eatinOreatout);
+		set_data(eatinOreatout, arr);
 		set_layout(); // Menu layout set
 		menu_dp();    // Menu display
 		setSize(600, 800); 
 		setVisible(false);
 	}
 	
-	protected void set_data(String eatinOreatout) {				
+	protected void set_data(String eatinOreatout, ArrayList<String> arr) {				
 		//Menu data : 6개  + 매장/포장 :  1개
-		order_list = new ArrayList<>(Arrays.asList("0","0","0","0","0","0"));
-		order_list.add(eatinOreatout);
+		order_list = arr;
+		if (order_list.size() == 6) // initial_screen에서 온 경우
+			order_list.add(eatinOreatout);
 		System.out.println(order_list);
+		Frequency =  Collections.frequency(order_list, "0");
 	}
 	
 	//order_Dialog 
 	private void btn_listener(JButton order_btn,JButton cancel_btn) {		
 		order_btn.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				if(Frequency != 6) // 주문리스트의 모든 요소가 0이라면(주문내역이 없다면)
+				if(Frequency != 6) // 주문리스트의 모든 요소가 0이 아니라면(주문내역이 있다면)
 				{
+					setVisible(false);
 					order_Dialog d = new order_Dialog(order_list);// new order_Dialog
 					d.setLocation(550, 200);
 					d.setVisible(true); //결제 팝업창 열기				   
@@ -74,6 +77,7 @@ class Menu extends JFrame{
 		cancel_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);// Menu창 닫기
+				new Initial_screen();
 			}
 		});
 	}
@@ -97,7 +101,7 @@ class Menu extends JFrame{
                     
                     // data update
                     order_list.set(index, strNum);
-                    System.out.println(order_list+"\n");
+                    System.out.println(order_list);
 				}
 				
 				//minus btn
@@ -119,10 +123,10 @@ class Menu extends JFrame{
 					else {// count <=0 이라면 -버튼 클릭시 0으로 set
 						num[index].setText("0");
 						order_list.set(index, strNum); // data update
-						System.out.println(order_list);
+						//System.out.println(order_list);
 					}           
 				}
-				Frequency = Collections.frequency(order_list, "0");       
+				Frequency = Collections.frequency(order_list, "0");
 		        //System.out.println(Frequency);
 			}
 		};		
@@ -251,9 +255,9 @@ class Menu extends JFrame{
 			btn_plus[i] = new JButton("+"); 
 			btn_minus[i] = new JButton("-");	
 			
-			//개수 
-			num[i] = new JLabel ("0",JLabel.CENTER);
-			num[i].setText("0");		
+			//개수
+			num[i] = new JLabel (order_list.get(i),JLabel.CENTER);
+			num[i].setText(order_list.get(i));
 			
 			// menu 수량 증가/감소  listener				
 			menu_listener(btn_plus[i],btn_minus[i],i);

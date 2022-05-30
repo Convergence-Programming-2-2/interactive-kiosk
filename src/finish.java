@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.Container;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class finish extends JFrame{
 	public finish() {
@@ -51,5 +53,17 @@ public class finish extends JFrame{
 		p_foreground.add(quest);
 		
 		this.setLocation(550, 220);
+		
+		Timer timer = new Timer();
+		TimerTask task = new TimerTask(){
+		    @Override
+		    public void run() { // 결제 완료 창으로 이동
+		    	setVisible(false);
+				System.out.println("2초가 지나 초기 화면으로 이동합니다.");
+				timer.cancel(); //타이머 종료
+				new Initial_screen();  	  
+		    }	
+		};
+		timer.schedule(task, 2000); // 2초 뒤 실헹
 	}
 }

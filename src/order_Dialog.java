@@ -110,9 +110,9 @@ public class order_Dialog extends JDialog{
 		
 		//이벤트------------------------------------------------------
 		
-		Payment p = new Payment();
 		ok_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Payment p = new Payment();
 				p.setVisible(true);// payment 창 열고
 				setVisible(false); // order_dialog 창 종료
 			}
@@ -122,6 +122,8 @@ public class order_Dialog extends JDialog{
 		cancel_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);  // order_dialog 종료
+				Menu m = new Menu("매장", arr);
+				m.setVisible(true); //메뉴창(Menu) 열고
 			}
 		});
 		
