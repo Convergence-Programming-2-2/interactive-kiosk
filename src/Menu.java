@@ -23,18 +23,15 @@ import javax.swing.*;
 
 class Menu extends JFrame{
 	
-	private String name[]= {"치즈버거", "새우버거","불고기버거","콜라","사이다","환타"}; //menu name
-	private JLabel nameLabels[] = new JLabel[name.length]; 					//menu name JLabel
+	private JLabel nameLabels[] = new JLabel[Constants.len]; //menu name JLabel
+	private JLabel Jprice[] = new JLabel[Constants.len];	//menu price JLabel
+	private JLabel imgLabels[] = new JLabel[Constants.len];	 //menu image JLabel
 	
-	private int price[]= {5000,5300,4800,2000,2000,1800}; 	//menu price
-	private JLabel Jprice[] = new JLabel[name.length];		//menu price JLabel
-	private JLabel imgLabels[] = new JLabel[name.length];	 //menu image JLabel
+	private JButton btn_plus[] = new JButton[Constants.len];	//menuCount button_plus JLabel
+	private JButton btn_minus[] = new JButton[Constants.len];	//menuCount button_minus JLabel	
+	private JLabel num[] = new JLabel[Constants.len];			//menuCount num
 	
-	private JButton btn_plus[] = new JButton[name.length];	//menuCount button_plus JLabel
-	private JButton btn_minus[] = new JButton[name.length];	//menuCount button_minus JLabel	
-	private JLabel num[] = new JLabel[name.length];			//menuCount num
-	
-	protected ArrayList<String> order_list = new ArrayList<>(name.length); // order list
+	private ArrayList<String> order_list = new ArrayList<>(Constants.len); // order list
 	private int Frequency = 6; //order_list "0" frequency
 	
 	private JPanel p_background; 
@@ -51,7 +48,8 @@ class Menu extends JFrame{
 		setVisible(false);
 	}
 	
-	protected void set_data(String eatinOreatout, ArrayList<String> arr) {				
+
+	private void set_data(String eatinOreatout, ArrayList<String> arr) {				
 		//Menu data : 6개  + 매장/포장 :  1개
 		order_list = arr;
 		if (order_list.size() == 6) // initial_screen에서 온 경우
@@ -146,7 +144,8 @@ class Menu extends JFrame{
 		
 		//BorderLayout.CENTER
 		p_background = new JPanel(new GridLayout(0,3));		
-		JScrollPane p_center = new JScrollPane(p_background,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		JScrollPane p_center 
+			= new JScrollPane(p_background,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		p_background.setBackground(Color.white);
 		c.add(p_center,BorderLayout.CENTER);
 		
@@ -233,11 +232,11 @@ class Menu extends JFrame{
 		JPanel menu6 =new JPanel(new GridLayout(4,0));
 
 		
-		for(int i=0; i<name.length; i++) { //메뉴의 개수만큼 반복
+		for(int i=0; i<Constants.len; i++) { //메뉴의 개수만큼 반복
 			
 			//가격
 			Jprice[i]= new JLabel();
-			Jprice[i].setText(String.valueOf(price[i])); 	 // int형 배열을 String으로 변환후 JPrice에 setText
+			Jprice[i].setText(String.valueOf(Constants.price[i])); 	 // int형 배열을 String으로 변환후 JPrice에 setText
 			Jprice[i].setHorizontalAlignment(JLabel.CENTER); // 가운데 정렬
 			Jprice[i].setFont(new Font("Dialog", Font.BOLD, 25)); //Font설정
 			
@@ -247,7 +246,7 @@ class Menu extends JFrame{
 			imgLabels[i] = new JLabel(icon);// imageicon을 JLabel imageLabels 객체로 생성
 			
 			//이름
-			nameLabels[i]= new JLabel(name[i]);// name을 JLabel nameLabels 객체로 생성
+			nameLabels[i]= new JLabel(Constants.name[i]);// name을 JLabel nameLabels 객체로 생성
 			nameLabels[i].setHorizontalAlignment(JLabel.CENTER);
 			nameLabels[i].setFont(new Font("Dialog", Font.BOLD, 25)); 
 			

@@ -77,7 +77,7 @@ public class Card_payment extends JFrame{
 				timer.cancel(); //타이머 종료
 		    }	
 		};
-		timer.schedule(task, 3000); // 5초 뒤 실헹
+		timer.schedule(task, 3000); // 3초 뒤 실헹
 		
 
 		//요청사항 그림-----------------------------------------------------
