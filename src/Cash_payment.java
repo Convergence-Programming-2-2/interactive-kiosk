@@ -59,27 +59,6 @@ public class Cash_payment extends JFrame{
 		wait_btn.setFont(new Font("Dialog", Font.BOLD, 15)); //글자 스타일
 		c.add(wait_btn);
 		
-		/*원본(안되면 이거로!)
-		JLabel wait = new JLabel("결제 중 입니다. 잠시만 기다려주세요:)");
-		wait.setBounds(150, 200, 400, 50); //위치
-		wait.setForeground(Color.black); //글자 색
-		wait.setFont(new Font("Dailog", Font.BOLD, 15)); //글자 폰트, 크기
-		p_foreground.add(wait);
-		*/
-		
-		/*시간차
-		Container contentPane;
-		contentPane = getContentPane();
-		contentPane.setLayout(new FlowLayout());
-		JLabel wait1 = new JLabel(new ImageIcon("./images/img/cash.png"));
-		wait1.setToolTipText("결제 중 입니다. 잠시만 기다려주세요:)");
-		contentPane.add(wait1);
-		
-	
-		ToolTipManager m = ToolTipManager.sharedInstance();
-		m.setInitialDelay(0);
-		m.setDismissDelay(10000);
-		*/
 
 		//요청사항 그림-----------------------------------------------------
         ImageIcon cash_icon = new ImageIcon("./images/img/cash_img2.png");//현급 투입 아이콘 추가
