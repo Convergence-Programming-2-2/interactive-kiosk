@@ -52,7 +52,7 @@ public class Card_payment extends JFrame{
 		p_foreground.add(quest);
 		
 		//결제완료버튼
-		JButton wait_btn = new JButton("결제 중 입니다. 잠시만 기다려주세요:)"); //이 버튼을 누르면 결제 완료창으로 넘어갈 수 있게끔
+		JButton wait_btn = new JButton("결제 중 입니다. 잠시만 기다려주세요:)");
 		wait_btn.setBounds(100, 300, 300, 50);
 		wait_btn.setForeground(Color.black); //글자색(검정)
 		wait_btn.setBackground(new Color(255, 248, 243)); //버튼 배경색(아이보리색)
@@ -79,27 +79,6 @@ public class Card_payment extends JFrame{
 		};
 		timer.schedule(task, 3000); // 5초 뒤 실헹
 		
-		/*원본->안되면 이거로!
-		JLabel wait = new JLabel("결제 중 입니다. 잠시만 기다려주세요:)");
-		wait.setBounds(150, 200, 400, 50); //위치
-		wait.setForeground(Color.black); //글자 색
-		wait.setFont(new Font("Dailog", Font.BOLD, 15)); //글자 폰트, 크기
-		p_foreground.add(wait);
-		*/
-		
-		/*시간차
-		Container contentPane;
-		contentPane = getContentPane();
-		contentPane.setLayout(new FlowLayout());
-		JLabel wait1 = new JLabel(new ImageIcon("./images/img/cash.png"));
-		wait1.setToolTipText("결제 중 입니다. 잠시만 기다려주세요:)");
-		contentPane.add(wait1);
-		
-	
-		ToolTipManager m = ToolTipManager.sharedInstance();
-		m.setInitialDelay(0);
-		m.setDismissDelay(10000);
-		*/
 
 		//요청사항 그림-----------------------------------------------------
         ImageIcon card_icon = new ImageIcon("./images/img/card_img2.png"); //카드투입 아이콘 추가
