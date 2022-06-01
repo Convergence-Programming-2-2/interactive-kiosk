@@ -43,16 +43,16 @@ public class order_Dialog extends JDialog{
 		//JButton--------------------------------------------------
 		JButton ok_btn = new JButton("Ok"); //버튼 생성
 		ok_btn.setBounds(0, 315, 250, 50); //버튼 위치
-		ok_btn.setBackground(new Color(255, 158, 60)); //글자 색
-		ok_btn.setForeground(Color.white); // 배경 색
+		ok_btn.setBackground(new Color(255, 158, 60)); //배경 색
+		ok_btn.setForeground(Color.white); // 글자 색
 		ok_btn.setBorder(BorderFactory.createLineBorder(Color.white)); //버튼 테두리 색
 		ok_btn.setFont(new Font("Dialog", Font.BOLD, 20)); // 글자 폰트 및 크기
 		p_background.add(ok_btn); //백그라운드 패널에 버튼 부착
 		
 		JButton cancel_btn = new JButton("Cancel");//버튼 생성
 		cancel_btn.setBounds(250, 315, 250, 50); //버튼 위치
-		cancel_btn.setBackground(new Color(255, 158, 60)); //글자 색
-		cancel_btn.setForeground(Color.white); // 배경 색
+		cancel_btn.setBackground(new Color(255, 158, 60)); //배경 색
+		cancel_btn.setForeground(Color.white); // 글자 색
 		cancel_btn.setBorder(BorderFactory.createLineBorder(Color.white)); //버튼 테두리 색
 		cancel_btn.setFont(new Font("Dialog", Font.BOLD, 20)); // 글자 폰트 및 크기
 		p_background.add(cancel_btn); //백그라운드 패널에 버튼 부착
