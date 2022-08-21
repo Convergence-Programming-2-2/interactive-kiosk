@@ -5,6 +5,7 @@
 ![슬라이드4](/images/슬라이드4.JPG)
 ![슬라이드5](/images/슬라이드5.JPG)
 ![슬라이드6](/images/슬라이드6.JPG)
+[시현 영상 압축 파일](/video.zip)
 ![슬라이드7](/images/슬라이드7.JPG)
 ![슬라이드8](/images/슬라이드8.JPG)
 ![슬라이드9](/images/슬라이드9.JPG)
